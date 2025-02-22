@@ -15,7 +15,7 @@ router.get("/", auth, async (req, res) => {
   res.json(members);
 });
 
-// Get a single member by ID
+// Get a single member
 router.get("/:id", auth, async (req, res) => {
   const member = await knex("member").where({ mem_id: req.params.id }).first();
   if (!member) return res.status(404).json({ error: "Member not found" });
